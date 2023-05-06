@@ -1,0 +1,38 @@
+
+function getAdjacentValue() {
+  var range = SpreadsheetApp.getActiveSheet().getActiveRange();
+  //console.log("RANGE ::: "+typeof range);
+  var col = range.getColumn();
+  //console.log("col :::" +typeof col);
+  
+  var row = range.getRow();
+
+  //console.log("row :::" +typeof row);
+  var range2 = SpreadsheetApp.getActiveSheet().getRange(row,col-1);
+  //console.log("range2 ::: "+typeof range2);
+  return range2.getValue();
+}
+
+function fonAnaliz() {
+  var leftCellValue = getAdjacentValue().toUpperCase();
+
+  //var leftCellValue = "AE2"
+
+  var url = "https://www.tefas.gov.tr/FonAnaliz.aspx?FonKod=" + leftCellValue;
+  var options = {
+    'muteHttpExceptions': true
+  };
+  
+  var response = UrlFetchApp.fetch(url, options);
+  var content = response.getContentText();
+  var $ = Cheerio.load(content);
+  
+  // var tahminSpan = $(".fund-profile-item");
+  // var tahminValue = tahminSpan.text().substring(0,3);
+
+  var bilgiler = $(".top-list li span")
+  console.log(bilgiler);
+  var mevcutFiyat = bilgiler['0'].children[0].data;
+  var gunlukDegisim = bilgiler['1'].children[0].data;
+  return [[mevcutFiyat,gunlukDegisim]];
+}
