@@ -1,4 +1,4 @@
-Bu repodaki kod parcasi, https://www.tefas.gov.tr/FonAnaliz.aspx?FonKod={FON_ADI} sitesinde, girilen fon ismine gore anlik fiyat bilgilerini ve gunluk degisimlerini cekmektedir. Web scraping yontemi kullanilmaktadir. 
+JavaScript dili ile yazilan bu kod parcasi, https://www.tefas.gov.tr/FonAnaliz.aspx?FonKod={FON_ADI} sitesinde, girilen fon ismine gore anlik fiyat bilgilerini ve gunluk degisimlerini cekmektedir. Web scraping yontemi kullanilmaktadir. 
 
 Bir tetikleyici veya baska bir yontem ile SpreadSheet sayfasinda verilerin belirli zaman periyotlarinda guncellenmesini saglayabilirsiniz. 
 
